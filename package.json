@@ -1,0 +1,59 @@
+{
+  "name": "monopoly-deal-api",
+  "version": "1.0.0",
+  "description": "REST API for Monopoly Deal project",
+  "scripts": {
+    "lint": "tslint '?(tests|app)/**/*.ts' || exit 1",
+    "postinstall": "typings install",
+    "start": "ts-node app/index.ts",
+    "test-coverage": "nyc npm test",
+    "test": "env NODE_ENV=test ./node_modules/.bin/mocha tests/* --recursive --compilers ts:ts-node/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alormil/monopoly-deal-api.git"
+  },
+  "keywords": [
+    "monopoly",
+    "deal",
+    "card",
+    "game",
+    "rest",
+    "api"
+  ],
+  "author": "Alain Lormil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alormil/monopoly-deal-api/issues"
+  },
+  "homepage": "https://github.com/alormil/monopoly-deal-api#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.14",
+    "mocha": "^3.1.0",
+    "tslint": "^3.15.1",
+    "tslint-microsoft-contrib": "^2.0.12",
+    "typescript": "^2.0.3",
+    "typings": "^1.4.0"
+  },
+  "dependencies": {
+    "restify": "^4.1.1",
+    "ts-node": "^1.4.1"
+  },
+  "nyc": {
+    "require": [
+      "ts-node/register"
+    ],
+    "include": [
+      "ts/*.ts",
+      "ts/**/*.ts"
+    ],
+    "exclude": [
+      "typings"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "all": true
+  }
+}
