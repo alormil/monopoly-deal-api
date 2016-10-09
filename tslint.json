@@ -84,7 +84,7 @@
         "jsdoc-format": true,
         "max-func-body-length": [true, 100, {"ignore-parameters-to-function-regex": "describe"}],
         "max-line-length": [true, 140],
-        "member-access": true,
+        "member-access": false,
         "member-ordering": true,
         "new-parens": true,
         "no-construct": true,
