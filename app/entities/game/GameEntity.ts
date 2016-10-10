@@ -6,7 +6,7 @@ export class GameEntity {
     readonly id: number;
     public players: PlayerEntity[];
     public cardsInMiddle: CardEntity[];
-    public cardsPlayed: CardEntity[];
+    public cardsPlayed: CardEntity[] = [];
     public activePlayer: PlayerEntity;
     readonly gameplayOrder: PlayerEntity[];
     public activePlayerRemainingMoves: number = 3;
@@ -16,5 +16,6 @@ export class GameEntity {
         this.id = gameId;
         this.players = playersInGame;
         this.gameplayOrder = playersInGame;
+        this.activePlayer = playersInGame[0];
     }
 }
