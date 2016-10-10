@@ -49,3 +49,6 @@ typings
 
 #Coveralls YML file
 .coveralls.yml
+
+# Dependency directories
+ts-node
