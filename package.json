@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "REST API for Monopoly Deal project",
   "scripts": {
+    "clean": "del-cli .nyc_output && del-cli coverage/",
+    "coverage-report": "nyc npm test && nyc report --reporter=text --reporter=text-summary --reporter=html",
     "lint": "tslint '?(tests|app)/**/*.ts' || exit 1",
     "postinstall": "typings install",
     "start": "ts-node app/index.ts",
-    "test-coverage": "nyc npm test",
+    "update-coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "test": "env NODE_ENV=test ./node_modules/.bin/mocha tests/* --recursive --compilers ts:ts-node/register"
   },
   "repository": {
@@ -30,7 +32,9 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "coveralls": "^2.11.14",
+    "del-cli": "^0.2.0",
     "mocha": "^3.1.0",
+    "nyc": "^8.3.1",
     "tslint": "^3.15.1",
     "tslint-microsoft-contrib": "^2.0.12",
     "typescript": "^2.0.3",
@@ -38,15 +42,15 @@
   },
   "dependencies": {
     "restify": "^4.1.1",
-    "ts-node": "^1.4.1"
+    "ts-node": "^1.3.0"
   },
   "nyc": {
     "require": [
       "ts-node/register"
     ],
     "include": [
-      "ts/*.ts",
-      "ts/**/*.ts"
+      "app/*.ts",
+      "app/**/*.ts"
     ],
     "exclude": [
       "typings"
